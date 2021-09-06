@@ -1,0 +1,9 @@
+<script src="{{ asset('assets/js/jquery-3.3.1.min.js') }}"></script>
+<script src="{{ asset('assets/js/popper.min.js') }}"></script>
+<script src="{{ asset('assets/bootstrap/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('assets/js/jquery.magnific-popup.min.js') }}"></script>
+<script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
+{{-- <script src="{{ asset('assets/js/leaflet.js') }}"></script>
+<script src="{{ asset('assets/js/leaflet.markercluster.js') }}"></script> --}}
+<script src="{{ asset('assets/js/custom.js') }}"></script>
+{{-- <script src="{{ asset('assets/js/map-leaflet.js') }}"></script> --}}
