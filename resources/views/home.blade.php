@@ -24,13 +24,33 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
+
+          @forelse (userOrders(Auth::user()->id) as $order)
+
+            @if ($order->to >= Carbon\Carbon::today())
+
+              @else
+                <div class="alert alert-warning mt-4 mb-4" role="alert">
+                  Notice: Please Clear Your Due! <a href="{{ route('property.details', $order->property_id) }}">Click Here</a>
+                </div>
+            @endif
+
+
+
+          @empty
+
+          @endforelse
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
           <div class="card">
             <div class="card-header">
               <b>USER</b> DASHBOARD
             </div>
             <div class="card-body">
               <h5 class="card-title">Welcome,</h5>
-              <p class="card-text">{{ Auth::user()->name }}</p>
+              <h1 class="card-text">{{ Auth::user()->name }}</h1>
               <a href="{{ route('welcome') }}" class="btn btn-primary">Browse Property</a>
             </div>
           </div>

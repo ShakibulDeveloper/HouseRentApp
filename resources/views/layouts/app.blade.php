@@ -44,6 +44,11 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('dashboard.property') }}">Property</a>
                         </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('dashboard.rent.list') }}">Rent List</a>
+                        </li>
+
                         @else
                       @endif
 

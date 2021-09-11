@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\OrdersController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,6 +37,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/dashboard/map', [App\Http\Controllers\HomeController::class, 'map_view'])->name('dashboard.map');
 Route::get('/dashboard/property', [App\Http\Controllers\HomeController::class, 'property_view'])->name('dashboard.property');
+Route::get('/dashboard/rent/list', [App\Http\Controllers\HomeController::class, 'rent_list'])->name('dashboard.rent.list');
 Route::get('/dashboard/inspection', [App\Http\Controllers\HomeController::class, 'inspection'])->name('dashboard.inspection');
 Route::post('menu/update-order', [App\Http\Controllers\HomeController::class, 'updateOrder'])->name('drag_drop');
 
@@ -43,3 +45,6 @@ Route::post('menu/update-order', [App\Http\Controllers\HomeController::class, 'u
 Route::get('/property/navigate/{id}', [PropertyController::class, 'navigate'])->name('property.navigate');
 Route::get('/property/inspection/{id}', [PropertyController::class, 'inspection'])->name('property.inspection');
 Route::post('/property/inspection/update', [PropertyController::class, 'inspection_update'])->name('inspection.update');
+
+// ORDER ROUTES
+Route::post('/order', [OrdersController::class, 'store'])->name('order.store');

@@ -64,8 +64,76 @@
                     <!--Price-->
                     <h3>
                         <span class="badge badge-primary p-3 font-weight-normal ts-shadow__sm">${{ findProperty($property_id)->price }}</span>
+
+                        @if (Auth::user()->role == 'user')
+                          @if ($time == 'rent')
+                            <span class="badge badge-primary p-3 font-weight-normal ts-shadow__sm" style="cursor:pointer;" data-toggle="modal" data-target="#exampleModalCenter">Rent Now</span>
+                          @endif
+
+                          @if ($time == 'active')
+                            <span class="badge badge-success p-3 font-weight-normal ts-shadow__sm">Due Paid</span>
+                          @endif
+
+                          @if ($time == 'clear_due')
+                              <span class="badge badge-warning p-3 font-weight-normal ts-shadow__sm" style="cursor:pointer;" data-toggle="modal" data-target="#exampleModalCenter">Clear Due</span>
+                          @endif
+                        @endif
+
                     </h3>
 
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Rent House</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+
+                            <form action="{{ route('order.store') }}" method="post">
+                              @csrf
+                              <div class="form-group">
+                                <label for="exampleInputEmail1">Name</label>
+                                <input type="text" name="name" class="form-control" placeholder="Card Holder Name" required>
+                              </div>
+
+                              <div class="form-group">
+                                <label for="exampleInputPassword1">Family Member</label>
+                                <input type="number" name="member" class="form-control" placeholder="Total Member" required>
+                              </div>
+
+                              <div class="form-group">
+                                <label for="exampleInputPassword1">Card Number</label>
+                                <input type="number" name="card_number" class="form-control" id="exampleInputPassword1" placeholder="Enter Card Number" required>
+                              </div>
+
+                              <div class="form-group">
+                                <label for="exampleInputPassword1">Expiration (mm/yy)</label>
+                                <input type="text" name="expiration" class="form-control" placeholder="12/05/2022" required>
+                              </div>
+
+                              <div class="form-group">
+                                <label for="exampleInputPassword1">Security Code</label>
+                                <input type="number" name="code" class="form-control" placeholder="" required>
+                              </div>
+
+                              <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                              <input type="hidden" name="property_id" value="{{ $property_id }}">
+
+                              <button type="submit" class="btn btn-primary">Rent</button>
+                            </form>
+
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                 </div>
 
             </div>

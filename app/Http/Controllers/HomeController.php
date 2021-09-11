@@ -57,4 +57,10 @@ class HomeController extends Controller
     }
 
 
+    function rent_list()
+    {
+      return view('backend.rent.list');
+    }
+
+
 }

@@ -592,14 +592,15 @@
 
                     </li>
 
-                    <!--SUBMIT (Main level)
-                    =============================================================================================-->
-                    <li class="nav-item">
-                        <a class="btn btn-outline-primary btn-sm m-1 px-3" href="{{ route('property') }}">
-                            <i class="fa fa-plus small mr-2"></i>
-                            Add Property
-                        </a>
-                    </li>
+
+                      <li class="nav-item">
+                          <a class="btn btn-outline-primary btn-sm m-1 px-3" href="{{ route('property') }}">
+                              <i class="fa fa-plus small mr-2"></i>
+                              Add Property
+                          </a>
+                      </li>
+            
+
 
                 </ul>
                 <!--end Right navigation-->

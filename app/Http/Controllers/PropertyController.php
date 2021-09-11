@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Property;
+use App\Models\Orders;
 use Auth;
+use Carbon\Carbon;
 
 class PropertyController extends Controller
 {
@@ -68,7 +70,7 @@ class PropertyController extends Controller
     $property_update = Property::where('id', $getInsertedID)->first();
     $property_update->sort_id = $getInsertedID;
     $property_update->save();
-    
+
     return back()->with('sucess', "A new property added successfully!");
 
   }
@@ -103,6 +105,23 @@ class PropertyController extends Controller
   function details($id)
   {
     $property_id = $id;
-    return view('frontend.property.details',compact('property_id'));
+
+    if (Orders::where('user_id', Auth::user()->id)->where('property_id', $id)->count() > 0) {
+
+
+      if (Orders::where('user_id', Auth::user()->id)->where('property_id', $id)->first()->to >= Carbon::today()) {
+        $time = "active";
+      }
+      else {
+        $time = 'clear_due';
+      }
+
+
+    }
+    else {
+      $time = 'rent';
+    }
+
+    return view('frontend.property.details',compact('property_id', 'time'));
   }
 }
