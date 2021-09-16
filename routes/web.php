@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\OrdersController;
+use App\Http\Controllers\ProfileController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,7 +31,8 @@ Route::get('property/details/{id}', [PropertyController::class, 'details'])->nam
 //REGISTER ROUTES
 Route::post('user/register', [RegisterController::class, 'register_user'])->name('user.register');
 
-
+//PROFILE ROUTES
+Route::get('user/profile/{id}', [ProfileController::class, 'index'])->name('user.profile');
 
 Auth::routes();
 
@@ -48,3 +50,10 @@ Route::post('/property/inspection/update', [PropertyController::class, 'inspecti
 
 // ORDER ROUTES
 Route::post('/order', [OrdersController::class, 'store'])->name('order.store');
+
+//Mail
+Route::get('/send/mail/{id}', [OrdersController::class, 'mail_send'])->name('rent.mail');
+
+//PROFILE ROUTES
+Route::get('user/profile/update/{id}', [ProfileController::class, 'update'])->name('user.profile.update');
+Route::post('user/profile/store', [ProfileController::class, 'store'])->name('profile.store');

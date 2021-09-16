@@ -65,19 +65,22 @@
                     <h3>
                         <span class="badge badge-primary p-3 font-weight-normal ts-shadow__sm">${{ findProperty($property_id)->price }}</span>
 
-                        @if (Auth::user()->role == 'user')
-                          @if ($time == 'rent')
-                            <span class="badge badge-primary p-3 font-weight-normal ts-shadow__sm" style="cursor:pointer;" data-toggle="modal" data-target="#exampleModalCenter">Rent Now</span>
-                          @endif
+                        @auth
+                          @if (Auth::user()->role == 'user')
+                            @if ($time == 'rent')
+                              <span class="badge badge-primary p-3 font-weight-normal ts-shadow__sm" style="cursor:pointer;" data-toggle="modal" data-target="#exampleModalCenter">Rent Now</span>
+                            @endif
 
-                          @if ($time == 'active')
-                            <span class="badge badge-success p-3 font-weight-normal ts-shadow__sm">Due Paid</span>
-                          @endif
+                            @if ($time == 'active')
+                              <span class="badge badge-success p-3 font-weight-normal ts-shadow__sm">Due Paid</span>
+                            @endif
 
-                          @if ($time == 'clear_due')
-                              <span class="badge badge-warning p-3 font-weight-normal ts-shadow__sm" style="cursor:pointer;" data-toggle="modal" data-target="#exampleModalCenter">Clear Due</span>
+                            @if ($time == 'clear_due')
+                                <span class="badge badge-warning p-3 font-weight-normal ts-shadow__sm" style="cursor:pointer;" data-toggle="modal" data-target="#exampleModalCenter">Clear Due</span>
+                            @endif
                           @endif
-                        @endif
+                        @endauth
+
 
                     </h3>
 
@@ -121,8 +124,11 @@
                                 <input type="number" name="code" class="form-control" placeholder="" required>
                               </div>
 
-                              <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                              <input type="hidden" name="property_id" value="{{ $property_id }}">
+                              @auth
+                                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                                <input type="hidden" name="property_id" value="{{ $property_id }}">
+                              @endauth
+
 
                               <button type="submit" class="btn btn-primary">Rent</button>
                             </form>

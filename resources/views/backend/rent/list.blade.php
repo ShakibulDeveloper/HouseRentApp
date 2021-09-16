@@ -14,6 +14,17 @@
       <div class="row">
 
         <div class="col-lg-12">
+
+          @if (session('success'))
+
+            <div class="alert alert-success">
+              {{ session('success') }}
+            </div>
+
+            @else
+
+          @endif
+
           <table class="table">
             <thead class="table-success">
               <tr>
@@ -47,6 +58,7 @@
 
                   </td>
                   <td>
+                    <a href="{{ route('rent.mail', $order->id) }}" class="btn btn-success">Send Notice</a>
                     <button type="button" class="btn btn-danger">Block</button>
                   </td>
                 </tr>

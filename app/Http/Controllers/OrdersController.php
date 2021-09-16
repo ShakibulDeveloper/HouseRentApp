@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Orders;
 use Carbon\Carbon;
+use App\Models\User;
+use App\Mail\rentMail;
+
+use Mail;
 
 class OrdersController extends Controller
 {
@@ -41,5 +45,27 @@ class OrdersController extends Controller
       }
 
       return back()->with('success', 'Done Successfully!');
+    }
+
+    // send mail
+    function mail_send($id)
+    {
+      $user_id = Orders::where('id', $id)->first()->user_id;
+      $property_id = Orders::where('id', $id)->first()->property_id;
+      $user_email = User::where('id', $user_id)->first()->email;
+
+
+      $details = [
+        'p_id' => $property_id
+      ];
+
+      try {
+        Mail::to($user_email)->send(new rentMail($details));
+      } catch (\Throwable $th) {
+        //throw $th;
+      }
+
+      return back()->with('success', 'Mail Send Successfully!');
+
     }
 }

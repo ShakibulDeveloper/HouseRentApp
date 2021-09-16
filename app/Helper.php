@@ -7,6 +7,7 @@ use App\Models\Property;
 use Carbon\Carbon;
 use App\Models\Orders;
 use App\Models\User;
+use App\Models\Profile;
 
 function getAllProperty()
 {
@@ -26,6 +27,16 @@ function findProperty($id)
 function findUser($id)
 {
   return User::where('id', $id)->first();
+}
+
+function findProfile($id)
+{
+  return Profile::where('user_id', $id)->first();
+}
+
+function checkProfile($id)
+{
+  return Profile::where('user_id', $id)->get();
 }
 // function time($id)
 // {

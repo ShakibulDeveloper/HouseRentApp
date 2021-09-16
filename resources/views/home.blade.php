@@ -21,9 +21,19 @@
 @section('content')
 
   @if (Auth::user()->role == 'user')
+
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
+
+          @if (session('update'))
+            <div class="alert alert-success">
+              {{ session('update') }}
+            </div>
+
+            @else
+          @endif
+
 
           @forelse (userOrders(Auth::user()->id) as $order)
 
@@ -51,7 +61,9 @@
             <div class="card-body">
               <h5 class="card-title">Welcome,</h5>
               <h1 class="card-text">{{ Auth::user()->name }}</h1>
-              <a href="{{ route('welcome') }}" class="btn btn-primary">Browse Property</a>
+              <a href="{{ route('user.profile', Auth::user()->id) }}" class="btn btn-primary">Profile</a>
+              <a href="{{ route('user.profile.update', Auth::user()->id) }}" class="btn btn-warning">Update</a>
+
             </div>
           </div>
         </div>
@@ -71,6 +83,8 @@
             <div class="card-body">
               <h5 class="card-title">Welcome,</h5>
               <h1 class="card-text">{{ Auth::user()->name }}</h1>
+              <a href="{{ route('user.profile', Auth::user()->id) }}" class="btn btn-primary">Profile</a>
+              <a href="{{ route('user.profile.update', Auth::user()->id) }}" class="btn btn-warning">Update</a>
             </div>
           </div>
         </div>

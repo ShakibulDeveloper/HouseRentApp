@@ -87,6 +87,7 @@ class RegisterController extends Controller
       $user->longitute =  $request->lon;
       $user->save();
 
+
       return back()->with('success', "registered successfully!");
     }
 }

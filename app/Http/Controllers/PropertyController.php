@@ -106,21 +106,29 @@ class PropertyController extends Controller
   {
     $property_id = $id;
 
-    if (Orders::where('user_id', Auth::user()->id)->where('property_id', $id)->count() > 0) {
+    if (Auth::check()) {
+
+      if (Orders::where('user_id', Auth::user()->id)->where('property_id', $id)->count() > 0) {
 
 
-      if (Orders::where('user_id', Auth::user()->id)->where('property_id', $id)->first()->to >= Carbon::today()) {
-        $time = "active";
+        if (Orders::where('user_id', Auth::user()->id)->where('property_id', $id)->first()->to >= Carbon::today()) {
+          $time = "active";
+        }
+        else {
+          $time = 'clear_due';
+        }
+
+
       }
       else {
-        $time = 'clear_due';
+        $time = 'rent';
       }
-
 
     }
     else {
-      $time = 'rent';
+      $time ='active';
     }
+
 
     return view('frontend.property.details',compact('property_id', 'time'));
   }
