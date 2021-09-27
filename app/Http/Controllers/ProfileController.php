@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 use App\Models\User;
 use App\Models\Profile;
+use App\Models\Orders;
 
 class ProfileController extends Controller
 {
@@ -74,5 +75,13 @@ class ProfileController extends Controller
 
       return redirect()->route('home')->with('update', 'Profile Update Successfully!');
 
+    }
+
+
+    function payment_details($id)
+    {
+      $payment = Orders::where('id', $id)->first();
+
+      return view('backend.rent.payment', compact('payment'));
     }
 }

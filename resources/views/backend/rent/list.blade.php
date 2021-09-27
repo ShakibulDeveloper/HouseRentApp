@@ -33,7 +33,8 @@
                 <th scope="col">Family Member</th>
                 <th scope="col">Property</th>
                 <th scope="col">Price</th>
-                <th scope="col">Ends At</th>
+                <th scope="col">From(Date)</th>
+                <th scope="col">To(Date)</th>
                 <th scope="col">Status</th>
                 <th scope="col">Action</th>
               </tr>
@@ -47,6 +48,7 @@
                   <td>{{ $order->family_member }}</td>
                   <td>{{ findProperty($order->property_id)->title }}</td>
                   <td>${{ findProperty($order->property_id)->price }}</td>
+                  <td>{{ $order->from }}</td>
                   <td>{{ $order->to }}</td>
                   <td>
 
@@ -58,8 +60,8 @@
 
                   </td>
                   <td>
-                    <a href="{{ route('rent.mail', $order->id) }}" class="btn btn-success">Send Notice</a>
-                    <button type="button" class="btn btn-danger">Block</button>
+                    <a href="{{ route('rent.mail', $order->id) }}" class="btn btn-success">Notice</a>
+                    <a href="{{ route('payment.details', $order->id) }}" class="btn btn-success">Payment Details</a>
                   </td>
                 </tr>
               @empty

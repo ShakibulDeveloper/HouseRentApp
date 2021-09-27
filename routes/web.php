@@ -57,3 +57,5 @@ Route::get('/send/mail/{id}', [OrdersController::class, 'mail_send'])->name('ren
 //PROFILE ROUTES
 Route::get('user/profile/update/{id}', [ProfileController::class, 'update'])->name('user.profile.update');
 Route::post('user/profile/store', [ProfileController::class, 'store'])->name('profile.store');
+
+Route::get('user/payment/{id}', [ProfileController::class, 'payment_details'])->name('payment.details');
