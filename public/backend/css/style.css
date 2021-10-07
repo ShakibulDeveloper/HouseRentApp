@@ -1,0 +1,21 @@
+.filepond--credits{
+    display: none !important;
+}
+
+.data-loading{
+  display: none;
+}
+
+.note-editor.note-airframe, .note-editor.note-frame {
+	border: 1px solid #e8ebf1;
+}
+.backend-currency {
+	width: 90px;
+	margin-top: 13px;
+	margin-right: 15px;
+}
+
+.lang-custom-a {
+	position: relative;
+	top: 9px;
+}

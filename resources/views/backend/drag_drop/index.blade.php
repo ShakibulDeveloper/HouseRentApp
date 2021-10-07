@@ -1,4 +1,9 @@
-@extends('layouts.app')
+@extends('backend.layout.master')
+
+@push('plugin-styles')
+  <link href="{{ asset('backend/assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css') }}" rel="stylesheet" />
+@endpush
+
 @section('content')
 <div class="container">
     <div class="row">
@@ -83,3 +88,17 @@
     })
 </script>
 @endsection
+
+@push('plugin-scripts')
+  <script src="{{ asset('backend/assets/plugins/chartjs/Chart.min.js') }}"></script>
+  <script src="{{ asset('backend/assets/plugins/jquery.flot/jquery.flot.js') }}"></script>
+  <script src="{{ asset('backend/assets/plugins/jquery.flot/jquery.flot.resize.js') }}"></script>
+  <script src="{{ asset('backend/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}"></script>
+  <script src="{{ asset('backend/assets/plugins/apexcharts/apexcharts.min.js') }}"></script>
+  <script src="{{ asset('backend/assets/plugins/progressbar-js/progressbar.min.js') }}"></script>
+@endpush
+
+@push('custom-scripts')
+  <script src="{{ asset('backend/assets/js/dashboard.js') }}"></script>
+  <script src="{{ asset('backend/assets/js/datepicker.js') }}"></script>
+@endpush

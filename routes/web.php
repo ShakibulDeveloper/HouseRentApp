@@ -21,8 +21,6 @@ Route::get('/', function () {
 })->name('welcome');
 
 
-
-
 //PROPERTY Routes
 Route::get('add/property', [PropertyController::class, 'view'])->name('property');
 Route::post('add/property/store', [PropertyController::class, 'store'])->name('property.store');
