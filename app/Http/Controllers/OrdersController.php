@@ -68,4 +68,23 @@ class OrdersController extends Controller
       return back()->with('success', 'Mail Send Successfully!');
 
     }
+
+
+    function search(Request $request)
+    {
+
+            if(!empty($request->name)){
+              $user = $request->name;
+            }
+            else {
+              $user = '';
+            }
+
+            //search result
+            $orders = Orders::orWhereBetween('created_at', [Carbon::parse($request->start_date), Carbon::parse($request->end_date)])
+                              ->orWhere('name', $request->name)
+                              ->get();
+
+            return view('backend.rent.search', compact('orders'));
+    }
 }

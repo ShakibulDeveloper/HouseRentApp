@@ -47,7 +47,7 @@ class rentMail extends Mailable
 
     {
 
-        return $this->subject('Mail From loyal-properties.com')
+        return $this->subject('Mail From loyalpartners.com')
 
                     ->view('emails.rentMail');
 

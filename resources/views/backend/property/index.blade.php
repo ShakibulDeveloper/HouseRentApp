@@ -36,7 +36,7 @@
               <h3 class="card-title">{{ $property->title }}</h3>
               <a href="{{ route('property.details', $property->id) }}" class="btn btn-secondary">Details</a>
               @if (Auth::user()->role == 'manager')
-                <a href="{{ route('property.inspection', $property->id) }}" class="btn btn-warning">Inspection</a>
+                <!-- <a href="{{ route('property.inspection', $property->id) }}" class="btn btn-warning">add Property</a> -->
               @endif
 
               @if (Auth::user()->role == 'admin')

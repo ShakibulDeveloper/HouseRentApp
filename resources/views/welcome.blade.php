@@ -16,7 +16,7 @@
   		}
   	</style>
 
-    <title>Loyal Properties</title>
+    <title>Loyal Partners</title>
 
 </head>
 

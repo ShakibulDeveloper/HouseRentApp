@@ -310,7 +310,7 @@
                         </table>
                         <p>I therefore kindly request that the outstanding balance be paid immediately and that you ensure that all future rental payments be made in full on the due date.</p>
                         <p>Yours faithfully,</p>
-                        <p>Royal Property LTD</p>
+                        <p>Loyal Partners</p>
                       </td>
                     </tr>
                   </table>

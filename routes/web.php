@@ -48,7 +48,7 @@ Route::post('/property/inspection/update', [PropertyController::class, 'inspecti
 
 // ORDER ROUTES
 Route::post('/order', [OrdersController::class, 'store'])->name('order.store');
-
+Route::get('/search', [OrdersController::class, 'search'])->name('search');
 //Mail
 Route::get('/send/mail/{id}', [OrdersController::class, 'mail_send'])->name('rent.mail');
 

@@ -75,7 +75,7 @@
   <div class="col-md-12 grid-margin stretch-card">
       <div class="card">
         <div class="card-body">
-          <h6 class="card-title">All Rent</h6>
+          <h6 class="card-title">Search Result</h6>
           <div class="table-responsive">
               <table class="table display" id="dataTableExample">
                 <thead>
@@ -92,7 +92,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  @forelse (findOrders() as $order)
+                  @forelse ($orders as $order)
                     <tr>
                       <th scope="row">{{ $loop->iteration }}</th>
                       <td>{{ $order->name }}</td>

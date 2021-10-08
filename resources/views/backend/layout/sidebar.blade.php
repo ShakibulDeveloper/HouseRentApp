@@ -21,39 +21,41 @@
           </a>
         </li>
 
+        @if (Auth::user()->role != 'user')
+          <li class="nav-item nav-category">Manage Property</li>
+          <li class="nav-item">
+            <a href="{{ route('dashboard.property') }}" class="nav-link">
+              <i class="link-icon" data-feather="home"></i>
+              <span class="link-title">Property</span>
+            </a>
+          </li>
 
-        <li class="nav-item nav-category">Manage Property</li>
-        <li class="nav-item">
-          <a href="{{ route('dashboard.property') }}" class="nav-link">
-            <i class="link-icon" data-feather="home"></i>
-            <span class="link-title">Property</span>
-          </a>
-        </li>
+          <li class="nav-item nav-category">Customers</li>
+          <li class="nav-item">
+            <a href="{{ route('dashboard.rent.list') }}" class="nav-link">
+              <i class="link-icon" data-feather="dollar-sign"></i>
+              <span class="link-title">Rent List</span>
+            </a>
+          </li>
 
-        <li class="nav-item nav-category">Customers</li>
-        <li class="nav-item">
-          <a href="{{ route('dashboard.rent.list') }}" class="nav-link">
-            <i class="link-icon" data-feather="dollar-sign"></i>
-            <span class="link-title">Rent List</span>
-          </a>
-        </li>
+          <li class="nav-item nav-category">Rounting</li>
+          <li class="nav-item">
+            <a href="{{ route('dashboard.map') }}" class="nav-link">
+              <i class="link-icon" data-feather="map"></i>
+              <span class="link-title">Map</span>
+            </a>
+          </li>
 
-        <li class="nav-item nav-category">Rounting</li>
-        <li class="nav-item">
-          <a href="{{ route('dashboard.map') }}" class="nav-link">
-            <i class="link-icon" data-feather="map"></i>
-            <span class="link-title">Map</span>
-          </a>
-        </li>
+         
+          <li class="nav-item nav-category">Property</li>
+          <li class="nav-item">
+            <a href="{{ route('property') }}" class="nav-link">
+              <i class="link-icon" data-feather="home"></i>
+              <span class="link-title">Add Property</span>
+            </a>
+          </li>
+        @endif
 
-
-        <li class="nav-item nav-category">Inspection</li>
-        <li class="nav-item">
-          <a href="{{ route('dashboard.inspection') }}" class="nav-link">
-            <i class="link-icon" data-feather="list"></i>
-            <span class="link-title">Drag & Drop</span>
-          </a>
-        </li>
       </ul>
     </div>
 </nav>

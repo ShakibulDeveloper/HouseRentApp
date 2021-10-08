@@ -9,7 +9,7 @@
                 <!--Brand and description-->
                 <div class="col-md-6">
                     <a href="#" class="navbar-brand">
-                        Loyal Properties
+                        Loyal Partners
                     </a>
                     <p class="mb-4">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec placerat tempor sapien.
@@ -67,7 +67,7 @@
         <div class="container">
 
             <!--Copyright-->
-            <div class="ts-copyright">(C) 2022 Loyal Properties, All rights reserved</div>
+            <div class="ts-copyright">(C) 2022 Loyal Partners, All rights reserved</div>
 
             <!--Social Icons-->
             <div class="ts-footer-nav">

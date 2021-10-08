@@ -52,7 +52,7 @@
 
             <!--Brand Logo-->
             <a class="navbar-brand" href="{{ route('welcome') }}">
-                Loyal Properties
+                Loyal Partners
             </a>
 
             <!--Responsive Collapse Button-->
@@ -591,14 +591,18 @@
                       @endguest
 
                     </li>
-
-
-                      <li class="nav-item">
+                    @auth 
+                    @if(Auth::user()->role != 'user')
+                    <li class="nav-item">
                           <a class="btn btn-outline-primary btn-sm m-1 px-3" href="{{ route('property') }}">
                               <i class="fa fa-plus small mr-2"></i>
                               Add Property
                           </a>
                       </li>
+                    @endif
+                    @endauth
+
+
             
 
 

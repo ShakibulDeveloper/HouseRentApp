@@ -29,22 +29,11 @@
       <h4 class="mb-3 mb-md-0">Welcome to Dashboard</h4>
     </div>
     <div class="d-flex align-items-center flex-wrap text-nowrap">
-      <div class="input-group date datepicker dashboard-date mr-2 mb-2 mb-md-0 d-md-none d-xl-flex" id="dashboardDate">
-        <span class="input-group-addon bg-transparent"><i data-feather="calendar" class=" text-primary"></i></span>
-        <input type="text" class="form-control">
-      </div>
-      <button type="button" class="btn btn-outline-info btn-icon-text mr-2 d-none d-md-block">
-        <i class="btn-icon-prepend" data-feather="download"></i>
-        Import
-      </button>
-      <button type="button" class="btn btn-outline-primary btn-icon-text mr-2 mb-2 mb-md-0">
-        <i class="btn-icon-prepend" data-feather="printer"></i>
-        Print
-      </button>
-      <button type="button" class="btn btn-primary btn-icon-text mb-2 mb-md-0">
-        <i class="btn-icon-prepend" data-feather="download-cloud"></i>
-        Download Report
-      </button>
+
+      <a href="{{ route('welcome') }}" class="btn btn-primary btn-icon-text mb-2 mb-md-0">
+        <i class="btn-icon-prepend" data-feather="globe"></i>
+        Visit Homepage
+      </a>
     </div>
   </div>
 
@@ -66,7 +55,7 @@
 
         @else
           <div class="alert alert-warning mt-4 mb-4" role="alert">
-            Notice: Please Clear Your Due! <a href="{{ route('property.details', $order->property_id) }}">Click Here</a>
+            Notice: Please Clear Your Due of ${{ findProperty($order->property_id)->price }}! <a href="{{ route('property.details', $order->property_id) }}">Click Here</a>
           </div>
       @endif
 
@@ -99,6 +88,7 @@
 </div>
   </div>
 
+  @if(Auth::user()->role != 'user')
   <div class="row mt-5">
     <div class="col-12 col-xl-12 stretch-card">
       <div class="row flex-grow">
@@ -237,6 +227,8 @@
       </div>
     </div>
   </div>
+  @endif
+
   {{-- @if (Auth::user()->role == 'user')
 
     <div class="container">
