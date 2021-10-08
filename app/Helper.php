@@ -58,3 +58,18 @@ function findOrders()
 {
   return Orders::latest()->paginate(8);
 }
+
+function countUser()
+{
+  return User::all()->count();
+}
+
+function countOrder()
+{
+  return Orders::all()->count();
+}
+
+function Countproperty()
+{
+  return Property::all()->count();
+}
